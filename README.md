@@ -17,11 +17,11 @@
 *  [Pathogen](https://github.com/tpope/vim-pathogen)
   * `git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go`
 *  [vim-plug](https://github.com/junegunn/vim-plug)
-  * `Plug 'fatih/vim-go'`
+  * `Plug 'liwangmj/vim-switchtoinc'`
 *  [NeoBundle](https://github.com/Shougo/neobundle.vim)
-  * `NeoBundle 'fatih/vim-go'`
+  * `NeoBundle 'liwangmj/vim-switchtoinc'`
 *  [Vundle](https://github.com/gmarik/vundle)
-  * `Plugin 'fatih/vim-go'`
+  * `Plugin 'liwangmj/vim-switchtoinc'`
 
 ## 使用
 
