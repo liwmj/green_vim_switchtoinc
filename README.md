@@ -15,7 +15,7 @@
 可以直接克隆下来丢在vim的插件目录，但我推荐用插件管理器进行管理，下面是各种插件管理器：
 
 *  [Pathogen](https://github.com/tpope/vim-pathogen)
-  * `git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go`
+  * `git clone https://github.com/liwangmj/vim-switchtoinc.git ~/.vim/bundle/vim-switchtoinc`
 *  [vim-plug](https://github.com/junegunn/vim-plug)
   * `Plug 'liwangmj/vim-switchtoinc'`
 *  [NeoBundle](https://github.com/Shougo/neobundle.vim)
