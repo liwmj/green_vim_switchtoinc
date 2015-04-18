@@ -39,6 +39,7 @@
 
 初始化查找目录（只在用最后一种方式前使用，其他方法不用）：
 
+
 	:SearchIncAndSrcPath
 
 ## 设置
@@ -74,8 +75,9 @@ let g:iSearchPathName = [
 
 * 再调用 `SearchIncAndSrcPath` 进行初始化查找目录：
 
-
-	:SearchIncAndSrcPath
+```
+:SearchIncAndSrcPath
+```
 
 * 然后可以用`:A` `:AV` `:AS` 进行切换了。
 
