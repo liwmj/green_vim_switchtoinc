@@ -144,8 +144,14 @@ function! SearchIncAndSrcPath()
                 endfor
 
             endfor
-            let g:iSearchProjectPathCount = 1
-            echo 'Search OK!'
+
+            if g:iSearchProjectPathCount
+                echo 'Search OK!'
+                echo 'Please restart vim!!'
+            else
+                let g:iSearchProjectPathCount = 1
+                echo 'Search OK!'
+            endif
         else
             echo 'Search include and src root path no exists!'
         endif
