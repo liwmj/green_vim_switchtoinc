@@ -91,12 +91,22 @@ let g:iSearchPathName = [
 * 然后可以用`:A` `:AV` `:AS` 进行切换了。
 
 * 最后说一下，最新版本更新：
-```
-*第一次调用`:A` `:AV` `:AS`，插件内部会自动执行一次 `SearchIncAndSrcPath`，只需直接切换即可，不用单独执行。
-```
-```
-*另外，如果在使用vim过程中相关文件目录有更改，可以通过执行一次 `SearchIncAndSrcPath`来更新，但值得注意的是：之前打开过的文件切换信息由于存在缓存无法更新，需要重启vim才能生效！
-```
+
+	* 第一次调用`:A` `:AV` `:AS`，插件内部会自动执行一次 `SearchIncAndSrcPath`，只需直接切换即可，不用单独执行。
+
+	* 另外，如果在使用vim过程中相关文件目录有更改，可以通过执行一次 `SearchIncAndSrcPath`来更新，但值得注意的是：之前打开过的文件切换信息由于存在缓存无法更新，需要重启vim才能生效！
+
+## 推荐按键绑定
+	autocmd FileType c,cpp,objc,objcpp nmap <silent> <F4> :wall<CR>:A<CR>
+
+	autocmd FileType c,cpp,objc,objcpp nmap <silent> <C-F4> :wall<CR>:AV<CR>
+
+	autocmd FileType c,cpp,objc,objcpp nmap <silent> <S-F4> :wall<CR>:AS<CR>
+
+	autocmd FileType c,cpp,objc,objcpp nmap <silent> <Leader>an :wall<CR>:AN<CR>
+
+	autocmd FileType c,cpp,objc,objcpp nmap <silent> <Leader>as :wall<CR>:SearchIncAndSrcPath<CR>
+
 
 ## 谢谢
 
