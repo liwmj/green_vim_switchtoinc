@@ -117,33 +117,38 @@ if (!exists('g:alternateRelativeFiles'))
 endif
 
 if (!exists('g:iSearchProjectPath'))
-    let g:iSearchProjectPath = 0
+    let g:iSearchProjectPath = ''
 endif
 
+let g:iSearchProjectPathCount = 0
+
 function! SearchIncAndSrcPath()
-    if isdirectory(g:iSearchProjectPath)
-        execute 'cd ' . g:iSearchProjectPath
-        if (!exists('g:iSearchPathName'))
-            let g:iSearchPathName = ['source', 'src', 'include', 'inc']
-        endif
+    if g:iSearchProjectPath != ''
+        if isdirectory(g:iSearchProjectPath)
+            execute 'cd ' . g:iSearchProjectPath
+            if (!exists('g:iSearchPathName'))
+                let g:iSearchPathName = ['source', 'src', 'include', 'inc']
+            endif
 
-        let l:pathNameLen = len(g:iSearchPathName)
-        for i in range(l:pathNameLen)
-            let l:pathList = finddir(g:iSearchPathName[i], "**", -1)
-            let l:pathListLen = len(l:pathList)
+            let l:pathNameLen = len(g:iSearchPathName)
+            for i in range(l:pathNameLen)
+                let l:pathList = finddir(g:iSearchPathName[i], "**", -1)
+                let l:pathListLen = len(l:pathList)
 
-            for j in range(l:pathListLen)
-                let l:targetPath = ',abs:' . g:iSearchProjectPath . '/' . l:pathList[j]
-                let g:alternateSearchPath = g:alternateSearchPath . l:targetPath
+                for j in range(l:pathListLen)
+                    let l:targetPath = ',abs:' . g:iSearchProjectPath . '/' . l:pathList[j]
+                    let g:alternateSearchPath = g:alternateSearchPath . l:targetPath
 
-                let l:pathPrint = g:iSearchProjectPath . '/' . l:pathList[j]
-                echo l:pathPrint
+                    let l:pathPrint = g:iSearchProjectPath . '/' . l:pathList[j]
+                    echo l:pathPrint
+                endfor
+
             endfor
-
-        endfor
-        echo 'Search OK!'
-    else
-        echo 'Search include and src root path no exists!'
+            let g:iSearchProjectPathCount = 1
+            echo 'Search OK!'
+        else
+            echo 'Search include and src root path no exists!'
+        endif
     endif
 endfunction
 " :SearchIncAndSrcPath ---初始化搜素目录
@@ -454,6 +459,17 @@ endfunction
 "            + rework to favor files in memory based on complete enumeration of
 "              all files extensions and paths
 function! AlternateFile(splitWindow, ...)
+    if !g:iSearchProjectPathCount
+        call SearchIncAndSrcPath()
+        if g:iSearchProjectPath == ''
+            return
+        endif
+
+        if !isdirectory(g:iSearchProjectPath)
+            return
+        endif
+    endif
+
   let extension   = DetermineExtension(expand("%:p"))
   let baseName    = substitute(expand("%:t"), "\." . extension . '$', "", "")
   let currentPath = expand("%:p:h")
@@ -579,11 +595,11 @@ comm! -nargs=? -bang IHV call AlternateOpenFileUnderCursor("v<bang>", <f-args>)
 comm! -nargs=? -bang IHT call AlternateOpenFileUnderCursor("t<bang>", <f-args>)
 comm! -nargs=? -bang IHN call AlternateOpenNextFile("<bang>")
 "imap <Leader>ih <ESC>:IHS<CR>
-nmap <Leader>ih :IHS<CR>
+" nmap <Leader>ih :IHS<CR>
 "imap <Leader>is <ESC>:IHS<CR>:A<CR>
-nmap <Leader>is :IHS<CR>:A<CR>
+" nmap <Leader>is :IHS<CR>:A<CR>
 "imap <Leader>ihn <ESC>:IHN<CR>
-nmap <Leader>ihn :IHN<CR>
+" nmap <Leader>ihn :IHN<CR>
 
 "function! <SID>PrintList(theList)
 "   let n = 1
