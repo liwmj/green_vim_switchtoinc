@@ -1,5 +1,19 @@
-" Copyright (c) 2015
-
+" Copyright (C) 2015 Oneiric Tiger.
+"
+" This program is free software; you can redistribute it and/or
+" modify it under the terms of the GNU General Public License Version 2
+" as published by the Free Software Foundation; either current version
+" of the License, or (at your option) any later version.
+"
+" This program is distributed in the hope that it will be useful,
+" but WITHOUT ANY WARRANTY; without even the implied warranty of
+" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+" GNU General Public License Version 2 for more details.
+"
+" You should have received a copy of the GNU General Public License Version 2
+" along with this program; if not, write to the Free Software
+" Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+"
 " Do not load vim-switchtoinc if is has already been loaded.
 if exists("loaded_alternateFile")
     finish
@@ -29,7 +43,7 @@ let s:maxDotsInExtension = 1
 " Args     : extension -- the extension to map
 "            alternates -- comma separated list of alternates extensions
 " Returns  : nothing
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 function! <SID>AddAlternateExtensionMapping(extension, alternates)
    " This code does not actually work for variables like foo{'a.b.c.d.e'}
    "let varName = "g:alternateExtensions_" . a:extension
@@ -168,7 +182,7 @@ command! SearchIncAndSrcPath call SearchIncAndSrcPath()
 "            n -- the extension to get
 " Returns  : the nth item (extension, path) from the list (extension
 "            spec), or "" for failure
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 " History  : Renamed from GetNthExtensionFromSpec to GetNthItemFromList
 "            to reflect a more generic use of this function. -- Bindu
 function! <SID>GetNthItemFromList(list, n)
@@ -334,7 +348,7 @@ endfunction
 "            baseName -- base name of the file to be expanded
 "            extension -- extension whose alternates are to be enumerated
 " Returns  : comma separated list of files with extensions
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 function! EnumerateFilesByExtension(path, baseName, extension)
    let enumeration = ""
    let extSpec = ""
@@ -382,7 +396,7 @@ endfunction
 "            relPath -- the path of the current file for expansion of relative
 "                       paths in the path list.
 " Returns  : A comma separated list of paths with extensions
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 function! EnumerateFilesByExtensionInPath(baseName, extension, pathList, relPathBase)
    let enumeration = ""
    let filepath = ""
@@ -457,7 +471,7 @@ endfunction
 " Args     : accepts one argument. If present it used the argument as the new
 "            extension.
 " Returns  : nothing
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 " History  : + When an alternate can't be found in the same directory as the
 "              source file, a search path will be traversed looking for the
 "              alternates.
@@ -534,7 +548,7 @@ endfunction
 " Purpose  : Opens file under the cursor
 " Args     : splitWindow -- indicates how to open the file
 " Returns  : Nothing
-" Author   : Michael Sharpe (feline@irendi.com) www.irendi.com
+" Author   : Wim Li <liwangmj@gmail.com>
 function! AlternateOpenFileUnderCursor(splitWindow,...)
    let cursorFile = (a:0 > 0) ? a:1 : expand("<cfile>")
    let currentPath = expand("%:p:h")
@@ -557,7 +571,7 @@ endfunction
 " Args     : bang -- indicates what to do if the current file has not been
 "                    saved
 " Returns  : nothing
-" Author   : Michael Sharpe (feline@irendi.com) www.irendi.com
+" Author   : Wim Li <liwangmj@gmail.com>
 function! AlternateOpenNextFile(bang)
    let cursorFile = ""
    if (exists("b:cursorFile"))
@@ -621,7 +635,7 @@ comm! -nargs=? -bang IHN call AlternateOpenNextFile("<bang>")
 "            the search path.
 " Args     : bang (IN) - used to implement the AN vs AN! functionality
 " Returns  : nothing
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 function! NextAlternate(bang)
    if (exists('b:AlternateAllFiles'))
       let currentFile = expand("%")
@@ -682,7 +696,7 @@ comm! -nargs=? -bang AN call NextAlternate("<bang>")
 " Purpose  : determines if a buffer or a readable file exists
 " Args     : fileName (IN) - name of the file to check
 " Returns  : 2 if it exists in memory, 1 if it exists, 0 otherwise
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 " History  : Updated code to handle buffernames using just the
 "            filename and not the path.
 function! <SID>BufferOrFileExists(fileName)
@@ -731,7 +745,7 @@ endfunction
 "            findSimilar (IN) -- indicate weather existing buffers should be
 "                                prefered
 " Returns  : nothing
-" Author   : Michael Sharpe <feline@irendi.com>
+" Author   : Wim Li <liwangmj@gmail.com>
 " History  : + bufname() was not working very well with the possibly strange
 "            paths that can abound with the search path so updated this
 "            slightly.  -- Bindu
