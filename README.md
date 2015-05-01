@@ -25,27 +25,27 @@
 
 ## 使用
 
-切换到当前文件的源文件或则头文件：
+##### 切换到当前文件的源文件或则头文件：
 ```
 :A
 ```
 
-同上，但在上面基础上会水平分栏进行打开：
+##### 同上，但在上面基础上会水平分栏进行打开：
 ```
 :AV
 ```
 
-打开当前文件的源文件或头文件，并会垂直分栏进行打开：
+##### 打开当前文件的源文件或头文件，并会垂直分栏进行打开：
 ```
 :AS
 ```
 
-多个重名文件之间的切换：
+##### 多个重名文件之间的切换：
 ```
 :AN
 ```
 
-初始化查找目录（只在用最后一种方式前使用，其他方法不用）：
+##### 初始化查找目录（只在用最后一种方式前使用，其他方法不用）：
 ```
 :SearchIncAndSrcPath
 ```
@@ -54,22 +54,22 @@
 
 需要设置源文件和头文件的查找目录，通过 `g:alternateSearchPath` 来设置。
 
-基于源文件的相对路径查找（如下是默认值）：
+##### 基于源文件的相对路径查找（如下是默认值）：
 ```
 let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
 ```
 
-基于绝对路径查找（例子）：
+##### 基于绝对路径查找（例子）：
 ```
 let g:alternateSearchPath = 'abs:/home/my/myporject/inc,abs:/home/my/myproject/src'
 ```
 
-基于vim正则表达式查找（例子）：
+##### 基于vim正则表达式查找（例子）：
 ```
 let g:alternateSearchPath = 'reg:/inc/src/g/, reg:/src/inc/g/'
 ```
 
-以上方法都比较有局限性，因为只能针对单条路径（正则）或单个目录进行查找，下面的方法相对麻烦一点，但一劳永逸，不用担心可恶的目录问题：
+##### 以上方法都比较有局限性，因为只能针对单条路径（正则）或单个目录进行查找，下面的方法相对麻烦一点，但一劳永逸，不用担心可恶的目录问题：
 
 * 先设置项目的根目录（例子）：
 ```
@@ -112,7 +112,6 @@ let g:iSearchPathName = [
 
 欢迎使用，祝使用愉快
 
-* http://liwangmj.com
-* liwangmj@gmail.com
-
+* [http://liwangmj.com](http://liwangmj.com)
+* [liwangmj@gmail.com](mailto:liwangmj@gmail.com)
 
