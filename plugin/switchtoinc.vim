@@ -479,14 +479,16 @@ endfunction
 "            + rework to favor files in memory based on complete enumeration of
 "              all files extensions and paths
 function! AlternateFile(splitWindow, ...)
-    if !g:iSearchProjectPathCount
-        call SearchIncAndSrcPath()
-        if g:iSearchProjectPath == ''
-            return
-        endif
+    if g:iSearchProjectPath != ''
+        if !g:iSearchProjectPathCount
+            call SearchIncAndSrcPath()
+            if g:iSearchProjectPath == ''
+                return
+            endif
 
-        if !isdirectory(g:iSearchProjectPath)
-            return
+            if !isdirectory(g:iSearchProjectPath)
+                return
+            endif
         endif
     endif
 
