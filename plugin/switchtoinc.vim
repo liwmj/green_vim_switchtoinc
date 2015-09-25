@@ -14,7 +14,7 @@
 " along with this program; if not, write to the Free Software
 " Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 "
-" Do not load vim-switchtoinc if is has already been loaded.
+" Do not load green_vim_switchtoinc if is has already been loaded.
 if exists("loaded_alternateFile")
     finish
 endif
@@ -113,19 +113,19 @@ if (!exists('g:alternateSearchPath'))
   let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
 endif
 
-" If this variable is true then vim-switchtoinc will not alternate to a file/buffer which
+" If this variable is true then green_vim_switchtoinc will not alternate to a file/buffer which
 " does not exist. E.g while editing a.c and the :A will not swtich to a.h
 " unless it exists.
 if (!exists('g:alternateNoDefaultAlternate'))
-   " by default vim-switchtoinc will alternate to a file which does not exist
+   " by default green_vim_switchtoinc will alternate to a file which does not exist
    let g:alternateNoDefaultAlternate = 0
 endif
 
-" If this variable is true then vim-switchtoinc will convert the alternate filename to a
+" If this variable is true then green_vim_switchtoinc will convert the alternate filename to a
 " filename relative to the current working directory.
 " Feature by Nathan Huizinga
 if (!exists('g:alternateRelativeFiles'))
-    " by default vim-switchtoinc will not convert the filename to one relative to the
+    " by default green_vim_switchtoinc will not convert the filename to one relative to the
     " current working directory
     let g:alternateRelativeFiles = 0
 endif
@@ -233,9 +233,9 @@ endfunction
 "            'reg:|src/\([^/]*\)|inc/\1||' (see 'help :substitute',
 "            'help pattern' and 'help sub-replace-special' for more details
 "
-"            NOTE: vim-switchtoinc uses ',' (comma) internally so DON'T use it
+"            NOTE: green_vim_switchtoinc uses ',' (comma) internally so DON'T use it
 "            in your regular expressions or other pathSpecs unless you update
-"            the rest of the vim-switchtoinc code to use some other seperator.
+"            the rest of the green_vim_switchtoinc code to use some other seperator.
 "
 " Args     : pathSpec -- path component (or substitution patterns)
 "            sfPath -- source file path
