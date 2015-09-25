@@ -1,4 +1,4 @@
-# vim-switchtoinc
+# green_vim_switchtoinc
 
 这是一款vim插件，用于头文件和源文件间快速切换。注：在a.vim插件基础上修改的。
 
@@ -15,13 +15,13 @@
 可以直接克隆下来丢在vim的插件目录，但我推荐用插件管理器进行管理，下面是各种插件管理器：
 
 *  [Pathogen](https://github.com/tpope/vim-pathogen)
-  * `git clone https://github.com/liwangmj/vim-switchtoinc.git ~/.vim/bundle/vim-switchtoinc`
+  * `git clone https://github.com/liwangmj/green_vim_switchtoinc.git ~/.vim/bundle/green_vim_switchtoinc`
 *  [vim-plug](https://github.com/junegunn/vim-plug)
-  * `Plug 'liwangmj/vim-switchtoinc'`
+  * `Plug 'liwangmj/green_vim_switchtoinc'`
 *  [NeoBundle](https://github.com/Shougo/neobundle.vim)
-  * `NeoBundle 'liwangmj/vim-switchtoinc'`
+  * `NeoBundle 'liwangmj/green_vim_switchtoinc'`
 *  [Vundle](https://github.com/gmarik/vundle)
-  * `Plugin 'liwangmj/vim-switchtoinc'`
+  * `Plugin 'liwangmj/green_vim_switchtoinc'`
 
 ## 使用
 
