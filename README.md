@@ -112,6 +112,6 @@ let g:iSearchPathName = [
 
 欢迎使用，祝使用愉快
 
-* [http://liwangmj.com](http://liwangmj.com)
-* [liwangmj@gmail.com](mailto:liwangmj@gmail.com)
+* [https://liwmj.com](http://liwmj.com)
+* [i@liwmj.com](mailto:i@liwmj.com)
 
